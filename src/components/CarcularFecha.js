@@ -1,8 +1,19 @@
 import React from "react";
+import FormCumpleanos from "./FormCumpleanos";
 
 const CarcularFecha = ({ nacimiento }) => {
-  console.log(nacimiento);
-  return <div>CarcularFecha</div>;
+  const [fechaNacimiento, setFechaNacimiento] = React.useState();
+
+  React.useEffect(() => {
+    console.log("");
+  }, []);
+
+  return (
+    <div>
+      <h2>Carcular Fecha</h2>
+      <FormCumpleanos />
+    </div>
+  );
 };
 
 export default CarcularFecha;

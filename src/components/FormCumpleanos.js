@@ -5,18 +5,19 @@ const initialState = {
   fechaNacimiento: "",
 };
 
-const Cumpleanos = () => {
+const FormCumpleanos = ({ setFechaNacimiento }) => {
   const [formValue, setFormValue] = useState(initialState);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
     setFormValue({ [name]: value });
-    //console.log(formValue);
+    console.log(formValue);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setFechaNacimiento(formValue);
   };
   return (
     <div>
@@ -31,9 +32,8 @@ const Cumpleanos = () => {
 
         <button type="submit">Calcular</button>
       </form>
-      <CarcularFecha nacimiento={formValue} />;
     </div>
   );
 };
 
-export default Cumpleanos;
+export default FormCumpleanos;

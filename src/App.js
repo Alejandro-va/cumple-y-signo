@@ -1,10 +1,10 @@
 import "./App.css";
-import Cumpleanos from "./components/Cumpleanos";
+import CarcularFecha from "./components/CarcularFecha";
 
 function App() {
   return (
     <div className="App">
-      <Cumpleanos />
+      <CarcularFecha />
     </div>
   );
 }
