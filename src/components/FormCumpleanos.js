@@ -1,30 +1,45 @@
 import React, { useState } from "react";
-import CarcularFecha from "./CarcularFecha";
 
 const initialState = {
+  nombre: "",
   fechaNacimiento: "",
 };
 
-const FormCumpleanos = ({ setFechaNacimiento }) => {
+const FormCumpleanos = ({ agregarUsuario }) => {
   const [formValue, setFormValue] = useState(initialState);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setFormValue({ [name]: value });
-    console.log(formValue);
+    setFormValue({ ...formValue, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFechaNacimiento(formValue);
+
+    //validacion
+    if (!formValue.nombre || !formValue.fechaNacimiento)
+      return console.log("Faltan Datos");
+
+    //Agrego el state al pro
+    agregarUsuario(formValue);
+
+    //Limpio input
+    setFormValue(initialState);
   };
   return (
     <div>
-      Cumpleanos
+      Cumpleaños
       <form onSubmit={handleSubmit}>
         <input
           type="text"
+          name="nombre"
+          value={formValue.nombre}
+          onChange={handleChange}
+        />
+
+        <input
+          type="date"
           name="fechaNacimiento"
           value={formValue.fechaNacimiento}
           onChange={handleChange}
