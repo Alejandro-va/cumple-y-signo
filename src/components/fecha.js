@@ -71,5 +71,6 @@ function calcularSignoYDiasFaltantes(fechaNacimiento) {
   const fechaActual = new Date();
 
   // Establecemos el año de la fecha de nacimiento a la fecha actual
-  fechaNacimientoObjeto.setFullYear(fechaActual.getFullYear());
+  const a = fechaNacimientoObjeto.setFullYear(fechaActual.getFullYear());
+  console.log("tiempo: ", a);
 }
